@@ -33,7 +33,7 @@ public class RemoverIP extends javax.swing.JFrame {
         jCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Remover IP Vizinho");
+        setTitle("Remove IP");
 
         ip_remove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -41,7 +41,7 @@ public class RemoverIP extends javax.swing.JFrame {
             }
         });
 
-        jLabelRemoverIP.setText("Remover IP vizinho:");
+        jLabelRemoverIP.setText("Remover IP");
 
         jRemover.setText("Remover");
         jRemover.addActionListener(new java.awt.event.ActionListener() {
@@ -50,7 +50,7 @@ public class RemoverIP extends javax.swing.JFrame {
             }
         });
 
-        jCancelar.setText("Cancelar");
+        jCancelar.setText("Limpar");
         jCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCancelarActionPerformed(evt);

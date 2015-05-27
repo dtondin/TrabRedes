@@ -1,24 +1,21 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Scanner;
 
 /**
  *
  * @author Bruno, Douglas e Tamires
  */
-public class Gerenciador extends Thread { 
+public class Gerenciador extends Thread {
 
-    private Client c = new Client();
-    private Server s = new Server();
-    private String myIp = "";
-    private ArrayList<CamposTabela> lista;
-    //private Set<String> conjuntoIps;
+    Client c = new Client();
+    Server s = new Server();
+    String myIp = "";
+    ArrayList<CamposTabela> lista;
 
     public Gerenciador() {
-        lista = new ArrayList<CamposTabela>();
-        //conjuntoIps = new HashSet<String>();
+        lista = new ArrayList<>();
     }
 
     public String getMyIp() {
@@ -26,33 +23,29 @@ public class Gerenciador extends Thread {
     }
 
     public void adicionaIp(String ip) {
-        if (myIp.equals("")) {
-            //if (!conjuntoIps.contains(ip)) {
-                CamposTabela camp = new CamposTabela(ip, 0, "");
-                lista.add(camp);
-                //conjuntoIps.add(ip);
-                myIp = ip;
-                c.myIp(ip);
-                s.myIp(ip);
-           // }
-        }
+        CamposTabela camp = new CamposTabela(ip, 0, "");
+        lista.add(camp);
+        myIp = ip;
+        c.myIp(ip);
+        s.myIp(ip);
     }
 
     public void adicionaVizinho(String ip, int metrica, String destino) {
-        //if (!conjuntoIps.contains(destino)) {
-            CamposTabela camp = new CamposTabela(destino, metrica, "");
-            lista.add(camp);
-            //conjuntoIps.add(destino);
-        //}
-
+        CamposTabela camp = new CamposTabela(ip, metrica, destino);
+        lista.add(camp);
     }
 
     public void removeVizinho(String ipDestino) {
         for (CamposTabela ct : lista) {
             if (ct.getDestino().equals(ipDestino)) {
                 lista.remove(ct);
-                //conjuntoIps.remove(ipDestino);
             }
+        }
+    }
+
+    public void imprimirTabela() {
+        for (CamposTabela ct : lista) {
+            System.out.println(ct.toString());
         }
     }
 
@@ -65,8 +58,59 @@ public class Gerenciador extends Thread {
      */
     @Override
     public void run() {
+        boolean terminou = false;
+        Scanner sc = new Scanner(System.in);
         s.ApontaLista(lista);
         c.apontaLista(lista);
+        //System.out.println("Informe seu IP: ");
+        //myIp = sc.next();
+        //c.myIp(myIp);
+        //s.myIp(myIp);
+
+        while (terminou != true) {
+//            System.out.println("***** MENU *****");
+//            System.out.println("1 - Adicionar máquina ao grupo");
+//            System.out.println("2 - Remover máquina do grupo");
+//            System.out.println("3 - Exibir tabela de roteamento");
+//            System.out.println("4 - Encerrar");
+            int op = sc.nextInt();
+            String ipAux = "";
+            switch (op) {
+                case 1:
+                    //System.out.println("Informe o Ip vizinho: ");
+                    //ipAux = sc.next();
+                    //CamposTabela camp = new CamposTabela(ipAux, 1, ipAux);
+                    //lista.add(camp);
+                    break;
+                case 2:
+//                    CamposTabela aux = null;
+//                    System.out.println("Informe o Ip a ser removido: ");
+//                    ipAux = sc.next();
+//                    for (CamposTabela ct : lista) {
+//                        if (ct.getDestino().equals(ipAux)) {
+//                            aux = ct;
+//                            break;
+//                        }
+//                    }
+//                    if (aux != null) {
+//                        lista.remove(aux);
+//                    } else {
+//                        System.out.println("Impossível remover o IP.");
+//                    }
+                    break;
+                case 3:
+                    System.out.println("Tabela de roteamento : ");
+                    for (CamposTabela ct : lista) {
+                        System.out.println(ct.toString());
+                    }
+                    break;
+                case 4:
+//                    terminou = true;
+//                    System.exit(0);
+                    break;
+            }
+        }
+
     }
 
     /**

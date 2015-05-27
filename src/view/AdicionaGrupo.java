@@ -37,7 +37,7 @@ public class AdicionaGrupo extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Adicionar IPs Vizinho");
+        setTitle("Adiciona Vizinho");
 
         jPanel1.setEnabled(false);
         jPanel1.setMaximumSize(new java.awt.Dimension(100, 100));
@@ -51,7 +51,7 @@ public class AdicionaGrupo extends javax.swing.JFrame {
             }
         });
 
-        BCancelarGrupo.setText("Cancelar");
+        BCancelarGrupo.setText("Limpar");
         BCancelarGrupo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BCancelarGrupoActionPerformed(evt);
@@ -129,6 +129,7 @@ public class AdicionaGrupo extends javax.swing.JFrame {
     }//GEN-LAST:event_BAdicionaGrupoActionPerformed
 
     private void BCancelarGrupoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BCancelarGrupoActionPerformed
+        jTextField1.setText("");
         ip_destino.setText("");
     }//GEN-LAST:event_BCancelarGrupoActionPerformed
 

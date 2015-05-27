@@ -22,13 +22,13 @@ public class ExibirTabela extends javax.swing.JFrame {
     }
 
     public void mostrarTabela() {
-            ArrayList<CamposTabela> lista = gerenciador.getLista();
-            String saida = "";
-            for (CamposTabela ct : lista) {
-                saida += ct.toString() + "\n";
-                //System.out.println(ct.toString());
-            }
-            jSaidaConsole.setText(saida);
+        ArrayList<CamposTabela> lista = gerenciador.getLista();
+        String saida = "";
+        for (CamposTabela ct : lista) {
+            saida += ct.toString() + "\n";
+            System.out.println(ct.toString());
+        }
+        jSaidaConsole.setText(saida);
     }
 
     /**
@@ -50,7 +50,7 @@ public class ExibirTabela extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tabela de Roteamento");
 
-        jLabelSaidaConsole.setText("Saída Console: Tabela de Roteamento");
+        jLabelSaidaConsole.setText("Saída Console");
 
         jSaidaConsole.setColumns(20);
         jSaidaConsole.setRows(5);
@@ -72,7 +72,7 @@ public class ExibirTabela extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelSaidaConsole)
-                        .addGap(0, 197, Short.MAX_VALUE))
+                        .addGap(0, 313, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelIPDestino)
                         .addGap(118, 118, 118)

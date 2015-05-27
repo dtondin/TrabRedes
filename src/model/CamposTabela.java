@@ -13,6 +13,7 @@ package model;
 public class CamposTabela {
 
     String destino;
+    String a;
     int metrica;
     String saida;
 
@@ -20,14 +21,7 @@ public class CamposTabela {
     public CamposTabela(String destino, int metrica, String saida) {
         this.destino = destino;
         this.metrica = metrica;
-        atualizaSaida();
-    }
-
-    // Construtor da classe que não recebe nenhum atributo por parametro
-    public CamposTabela() {
-        this.destino = "";
-        this.metrica = 0;
-        this.saida = "";
+        this.saida = saida;
     }
 
     // Edita o valor do campo 'Destino'
@@ -62,18 +56,8 @@ public class CamposTabela {
 
     @Override
     public String toString() {
-        String tab =  "Destino: " + destino +
-                " | Metrica: " + metrica +
-                " | Saida: " + saida + " |";
-        return tab;
-    }
-
-    private void atualizaSaida() {
-        if (metrica == 1 || metrica == 0) {
-            saida = "direto";
-        } else {
-            saida = destino;
-        }
+        return "Campos Tabela: "
+                + "|" + "Destino: " + destino + " | Metrica: " + metrica + " | Saida: " + saida + "|";
     }
 
 }

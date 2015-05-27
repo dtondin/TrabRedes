@@ -14,20 +14,16 @@ public class Principal extends javax.swing.JFrame {
      * Creates new form Principal
      */
     Gerenciador gerenciador;
-    Server serv;
-    Client cli;
 
     public Principal() {
         initComponents();
 
         gerenciador = new Gerenciador();
-        serv = gerenciador.atualServer();
-        cli = gerenciador.atualCliente();
-        
+        Server serv = gerenciador.atualServer();
+        Client cli = gerenciador.atualCliente();
         Thread thCli = new Thread(cli);
         Thread thServ = new Thread(serv);
         Thread thMenu = new Thread(gerenciador);
-        
         thCli.start();
         thServ.start();
         thMenu.start();
@@ -42,7 +38,7 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         AdicionarMaquinas = new javax.swing.JMenuItem();
@@ -52,18 +48,14 @@ public class Principal extends javax.swing.JFrame {
         Fechar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Simulador de Roteamento");
+        setTitle("Trabalho de Redes 2015");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 486, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 195, Short.MAX_VALUE)
-        );
+        jLabel1.setText("Este Projeto foi desenvolvido para simular o processamento do Protocolo RIP. Integrantes: Bruno, Douglas, Tamires");
 
         jMenu1.setText("Arquivo");
 
@@ -120,11 +112,16 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         pack();
@@ -153,6 +150,11 @@ public class Principal extends javax.swing.JFrame {
     private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed
         System.exit(0);
     }//GEN-LAST:event_FecharActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        setDefaultCloseOperation(Principal.EXIT_ON_CLOSE);
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -194,8 +196,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem Fechar;
     private javax.swing.JMenuItem MostrarRoteamento;
     private javax.swing.JMenuItem RemoveIps;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

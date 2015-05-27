@@ -4,6 +4,7 @@ package model;
  *
  * @author Bruno, Douglas e Tamires
  */
+import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
 
@@ -36,8 +37,7 @@ public class Client extends Thread {
                             byte[] sendData = new byte[1024];
                             byte[] receiveData = new byte[1024];
 
-                            // le uma linha do teclado
-                            //String sentence = ct.destino;
+                            // l� uma linha do teclado
                             String sentence = inFromUser;
                             sendData = sentence.getBytes();
 
