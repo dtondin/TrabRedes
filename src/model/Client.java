@@ -32,7 +32,7 @@ public class Client extends Thread {
                         for (CamposTabela ct : lista) {
 
                             InetAddress IPAddress
-                                    = InetAddress.getByName(ct.getSaida());
+                                    = InetAddress.getByName(ct.getDestino());
 
                             byte[] sendData = new byte[1024];
                             byte[] receiveData = new byte[1024];
@@ -84,7 +84,7 @@ public class Client extends Thread {
         if (lista != null && lista.size() > 0) {
             listaEmString = ip + "/";
             for (CamposTabela c : lista) {
-                listaEmString += c.getDestino() + "/" + c.getMetrica() + "/";
+                listaEmString += c.getDestino()+ "/" + c.getMetrica() + "/";
             }
         }
     }

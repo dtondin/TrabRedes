@@ -73,14 +73,14 @@ public class Server extends Thread {
             CamposTabela aux = null;
             for(int i = 1;i <= ar.length-2; i=i+2){
 
-                aux = new CamposTabela(ar[i], Integer.parseInt(ar[i+1])+1, ar[0]);
+                aux = new CamposTabela(ar[0], Integer.parseInt(ar[i+1])+1, ar[i]);
                 ct.add(aux);
-                if(!lista.contains(aux) && !aux.getDestino().equals(ip)){
+                if(!lista.contains(aux) && !aux.getIp().equals(ip)){
                     lista.add(aux);
                 }else{
                     CamposTabela camp = null;
                     for(CamposTabela ca:lista){
-                        if(ca.getDestino().equals(ar[i])){
+                        if(ca.getIp().equals(ar[i])){
                             camp = ca;
                         }
                     }
@@ -94,7 +94,7 @@ public class Server extends Thread {
             }
             ArrayList<CamposTabela> toRemove = new ArrayList<>();
             for(CamposTabela ca:lista){
-                if(ca.getSaida().equals(ar[0]) && !ct.contains(ca)){
+                if(ca.getDestino().equals(ar[0]) && !ct.contains(ca)){
                     toRemove.add(ca);
                 }            
             } 

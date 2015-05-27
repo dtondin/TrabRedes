@@ -12,36 +12,20 @@ package model;
  */
 public class CamposTabela {
 
-    String destino;
-    String a;
-    int metrica;
-    String saida;
+    private String ip;
+    private int metrica;
+    private String destino;
 
     // Construtor da classe que recebe por parametro todos os atributos
-    public CamposTabela(String destino, int metrica, String saida) {
-        this.destino = destino;
+    public CamposTabela(String ip, int metrica, String destino) {
+        this.ip = ip;
         this.metrica = metrica;
-        this.saida = saida;
-    }
-
-    // Edita o valor do campo 'Destino'
-    public void setDestino(String destino) {
         this.destino = destino;
-    }
-
-    // Edita o valor do campo 'Metrica'
-    public void setMetrica(int metrica) {
-        this.metrica = metrica;
-    }
-
-    // Edita o valor do campo 'Saida'
-    public void setSaida(String saida) {
-        this.saida = saida;
     }
 
     //Retorna o valor do campo 'Destino'
-    public String getDestino() {
-        return destino;
+    public String getIp() {
+        return ip;
     }
 
     //Retorna o valor do campo 'Metrica'
@@ -50,14 +34,14 @@ public class CamposTabela {
     }
 
     //Retorna o valor do campo 'Saida'
-    public String getSaida() {
-        return saida;
+    public String getDestino() {
+        return destino;
     }
 
     @Override
     public String toString() {
         return "Campos Tabela: "
-                + "|" + "Destino: " + destino + " | Metrica: " + metrica + " | Saida: " + saida + "|";
+                + "|" + "Ip: " + ip + " | Metrica: " + metrica + " | Destino: " + destino + "|";
     }
 
 }

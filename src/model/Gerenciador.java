@@ -37,15 +37,9 @@ public class Gerenciador extends Thread {
 
     public void removeVizinho(String ipDestino) {
         for (CamposTabela ct : lista) {
-            if (ct.getDestino().equals(ipDestino)) {
+            if (ct.getIp().equals(ipDestino)) {
                 lista.remove(ct);
             }
-        }
-    }
-
-    public void imprimirTabela() {
-        for (CamposTabela ct : lista) {
-            System.out.println(ct.toString());
         }
     }
 
@@ -58,59 +52,9 @@ public class Gerenciador extends Thread {
      */
     @Override
     public void run() {
-        boolean terminou = false;
-        Scanner sc = new Scanner(System.in);
+        
         s.ApontaLista(lista);
         c.apontaLista(lista);
-        //System.out.println("Informe seu IP: ");
-        //myIp = sc.next();
-        //c.myIp(myIp);
-        //s.myIp(myIp);
-
-        while (terminou != true) {
-//            System.out.println("***** MENU *****");
-//            System.out.println("1 - Adicionar máquina ao grupo");
-//            System.out.println("2 - Remover máquina do grupo");
-//            System.out.println("3 - Exibir tabela de roteamento");
-//            System.out.println("4 - Encerrar");
-            int op = sc.nextInt();
-            String ipAux = "";
-            switch (op) {
-                case 1:
-                    //System.out.println("Informe o Ip vizinho: ");
-                    //ipAux = sc.next();
-                    //CamposTabela camp = new CamposTabela(ipAux, 1, ipAux);
-                    //lista.add(camp);
-                    break;
-                case 2:
-//                    CamposTabela aux = null;
-//                    System.out.println("Informe o Ip a ser removido: ");
-//                    ipAux = sc.next();
-//                    for (CamposTabela ct : lista) {
-//                        if (ct.getDestino().equals(ipAux)) {
-//                            aux = ct;
-//                            break;
-//                        }
-//                    }
-//                    if (aux != null) {
-//                        lista.remove(aux);
-//                    } else {
-//                        System.out.println("Impossível remover o IP.");
-//                    }
-                    break;
-                case 3:
-                    System.out.println("Tabela de roteamento : ");
-                    for (CamposTabela ct : lista) {
-                        System.out.println(ct.toString());
-                    }
-                    break;
-                case 4:
-//                    terminou = true;
-//                    System.exit(0);
-                    break;
-            }
-        }
-
     }
 
     /**
